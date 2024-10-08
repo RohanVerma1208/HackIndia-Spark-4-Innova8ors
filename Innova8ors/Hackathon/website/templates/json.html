@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create NFT Metadata</title>
+</head>
+<body>
+    <h1>Successfully Created CID!</h1>
+    <form id="nftForm">
+        <label for="name">NFT Name:</label>
+        <input type="text" id="name" name="name" required><br><br>
+        <input type="hidden" id="prompt" name="prompt" value="{{ prompt }}">
+        <input type="hidden" id="nft_cid" name="nft_cid" value="{{ nft_cid }}">
+        <button type="submit">Create NFT Metadata</button>
+    </form>
+
+    <script>
+        document.getElementById('nftForm').addEventListener('submit', function(event) {
+            event.preventDefault();  // Prevent default form submission
+
+            const name = document.getElementById('name').value;
+            const prompt = document.getElementById('prompt').value;
+            const nft_cid = document.getElementById('nft_cid').value;
+
+            fetch('/create-metadata', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ name: name, prompt: prompt, nft_cid: nft_cid })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.error) {
+                    alert(`Error: ${data.error}`);
+                } else {
+                    alert(`Success: ${data.message}`);
+                    // Optionally, handle the response, e.g., redirect or clear the form
+                }
+            })
+            .catch(error => {
+                alert(`Fetch error: ${error}`);
+            });
+        });
+    </script>
+</body>
+</html>
+

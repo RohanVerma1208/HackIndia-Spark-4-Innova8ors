@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Bella - The Futuristic AI{% endblock %}</title>
+    <link rel="icon" href="/static/favicon.ico" type="image/x-icon" sizes="64x64">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap">
+    <link rel="stylesheet" href="/static/styleshome.css">
+</head>
+<body class="adjustment">
+    <header id="navbar">
+        <nav class="navbar">
+            <div class="logo">
+                <img src="/static/favicon.ico" alt="Icon" class="logo-img" onclick="reloadPage()">
+                <div class="typewriter"></div>
+            </div>
+            <div class="line"></div>
+            <div class="navbar-nav">
+                <a class="nav-item nav-link" id="about_developers" href="/about_developers">About us</a>
+                <a class="nav-item nav-link" id="contact_us" href="/contact">Contact us</a>
+            </div>
+        </nav>
+    </header>
+
+    <div class="video-container">
+        <video src="\static\pexels-matheus-de-moraes-gugelmim-14534811 (1440p).mp4" autoplay loop muted></video>
+        <div class="overlay-text">Let's shape the future of Artificial Intelligence</div>
+        <a href="/base" class="floating-button">Get Started</a>
+    </div>
+    <script src="/static/scripthome.js"></script>
+</body>
+</html>
